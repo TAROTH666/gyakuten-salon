@@ -1,37 +1,31 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts')
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>人生逆転サロン</title>
-</head>
+@section('content')
 
-<body>
-  <header class='navbar navbar-dark bg-danger'>
-    <div class='container'>
-      <a class='navbar-brand' href='{{ url(' ') }}'>
-                Gyakuten
-            </a>
+<div class='container mt-4'>
+  <div class='mb-4'>
+    <a href="{{ route('posts.create')}}" class='btn btn-primary'>
+      投稿を新規作成する
+    </a>
+  </div>
+    @foreach ($posts as $post)
+    <div class='card mt-4'>
+      <div class='card-header mb-2'>
+        {{ $post->title }}
+      </div>
+      <div class='card-body'>
+        <p class='card-text'>
+          {{ $post->body }}
+        </p>
+      </div>
+      <div class='card-footer'>
+        <span class='mr-2'>
+          投稿日時
+        </span>
+      </div>
     </div>
-
-  </header>
-
-  <div class='card mt-4'>
-    <div class='card-header mb-2'> 
-      
-    </div>
-    <div class='card-body'>
-      
-    </div>
-    <div class= 'card-footer'>
-      
-    </div>
+    @endforeach
   </div>
 
+@endsection('content')
 
-</body>
-
-</html>
