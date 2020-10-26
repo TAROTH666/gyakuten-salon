@@ -20,7 +20,7 @@ class PostsController extends Controller
     {
         $params = $request->validate([
             'title' => 'required|max:20',
-            'title' => 'required|max:140',
+            'body' => 'required|max:140',
             ]);
             
             Post::create($params);
