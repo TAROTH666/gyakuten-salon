@@ -8,8 +8,9 @@
                 投稿の編集
             </h1>
             
-            <form method="POST" action="{{ route('posts.update', ['post => $post])}}">
+            <form method="POST" action="{{ route('posts.update', ['post' => $post])}}">
                 {{csrf_field()}}
+                {{ method_field('PUT')}}
                 
                 <fieldset class="mb4">
                     <div class="form-group">
@@ -21,7 +22,7 @@
                             type="text" 
                             name="title"
                             class="form-control"
-                            value="{{$post-title}}"
+                            value="{{$post->title}}"
                         >
                     </div>
                     <div>
@@ -34,10 +35,10 @@
                             name="body"
                             rows="4"
                             class="form-control"
-                        >{{$post-body}}</textarea>
+                        >{{$post->body}}</textarea>
                     </div>
                     <div class="mt-5">
-                        <a class="btn btn-secondary" href="{{ route('posts.show', ['post => $post])}}">
+                        <a class="btn btn-secondary" href="{{route('posts.show', ['post' => $post])}}">
                             キャンセル
                         </a>
                         <button type="submit" class="btn btn-primary">
