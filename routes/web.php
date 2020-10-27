@@ -15,5 +15,5 @@ Route::get('/', 'PostsController@index')->name('top');
 
 //CRUD処理の場合はresourceが使える
 
-Route::resource('posts', 'PostsController',['only' =>['create', 'store']]);
+Route::resource('posts', 'PostsController',['only' =>['create', 'store','show']]);
 
